@@ -1,4 +1,3 @@
-export { Uuid } from './helpers/uuid';
-import uuid from './helpers/uuid';
+import NewRelicBrowserWebpackPlugin from './NewRelicBrowserWebpackPlugin';
 
-export default uuid;
+module.exports = NewRelicBrowserWebpackPlugin;
