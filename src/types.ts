@@ -9,4 +9,6 @@ export type NewRelicBrowserWebpackPluginOptions = {
   applicationId: number;
   apiKey: string;
   releaseInfo: ReleaseInfo;
+  sourcemapUploadHost: string;
+  assetsUrl: string;
 };

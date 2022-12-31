@@ -12,8 +12,9 @@ module.exports = {
   },
   plugins: [
     new NewRelicBrowserWebpackPlugin({
-      apiKey: '',
-      applicationId: '',
+      apiKey: 'NRAK-5YY3LEJWZZ93ZBRMMBFGDZ9DEWF',
+      applicationId: '535898923',
+      assetsUrl: 'https://example.com/assets',
       releaseInfo: {
         releaseId: require('../package.json').version,
         buildCommit: 'auto',

@@ -1,6 +1,7 @@
 import { publishSourcemap } from '@newrelic/publish-sourcemap';
-import { NewRelicBrowserWebpackPluginOptions, ReleaseInfo } from '../types';
+import { NewRelicBrowserWebpackPluginOptions } from '../types';
 import { JSFile } from './get-javascript-files';
+import { join } from 'path';
 
 type UploadSourcemapFileParams = {
   file: JSFile;
@@ -9,20 +10,20 @@ type UploadSourcemapFileParams = {
 
 export const uploadSourcemapFile = ({
   file,
-  options: { apiKey, applicationId, releaseInfo },
+  options: { apiKey, applicationId, releaseInfo, sourcemapUploadHost, assetsUrl },
 }: UploadSourcemapFileParams) => {
   return new Promise((resolve, reject) => {
     publishSourcemap(
       {
         sourcemapPath: file.sourcemap,
-        // sourcemapUrl: 'https://example.com/sourcefile.js.map', // or from a URL
-        javascriptUrl: 'https://example.com/assets/bundle.js',
+        javascriptUrl: join(assetsUrl, file.file),
         applicationId: applicationId,
         apiKey: apiKey,
         releaseName: releaseInfo.releaseName,
         releaseId: releaseInfo.releaseId,
         repoUrl: releaseInfo.repoUrl,
         buildCommit: releaseInfo.buildCommit,
+        sourcemapUploadHost: sourcemapUploadHost,
       },
       (err: unknown) => {
         if (err) {

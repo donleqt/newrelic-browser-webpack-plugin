@@ -4,12 +4,21 @@ import { NewRelicBrowserWebpackPluginOptions, ReleaseInfo } from './types';
 
 export default class NewRelicBrowserWebpackPlugin {
   options: NewRelicBrowserWebpackPluginOptions;
+  compiler?: Compiler;
+
+  static defaultOptions: Partial<NewRelicBrowserWebpackPluginOptions> = {
+    sourcemapUploadHost: 'https://sourcemaps.service.eu.newrelic.com',
+  };
 
   constructor(options: NewRelicBrowserWebpackPluginOptions) {
-    this.options = options;
+    this.options = {
+      ...NewRelicBrowserWebpackPlugin.defaultOptions,
+      ...options,
+    };
   }
 
   apply(compiler: Compiler) {
+    this.compiler = compiler;
     this.compilerDoneHook(compiler);
   }
 
@@ -31,7 +40,7 @@ export default class NewRelicBrowserWebpackPlugin {
       ...releaseInfo,
       releaseName: releaseInfo.releaseName || releaseInfo.releaseId,
       buildCommit: releaseInfo.buildCommit === 'auto' ? await CLIHelper.getBuildCommit() : releaseInfo.buildCommit,
-      repoUrl: releaseInfo.repoUrl === 'auto' ? await CLIHelper.getBuildCommit() : releaseInfo.repoUrl,
+      repoUrl: releaseInfo.repoUrl === 'auto' ? await CLIHelper.getRepoUrl() : releaseInfo.repoUrl,
     };
   }
 
@@ -44,8 +53,25 @@ export default class NewRelicBrowserWebpackPlugin {
             ...this.options,
             releaseInfo,
           },
-        }),
+        }).catch(this.handleError),
       ),
     );
   }
+
+  handleError = (error) => {
+    let errorData = error;
+
+    if (error.response?.text) {
+      try {
+        errorData = JSON.parse(error.response.text).errors;
+      } catch (err) {
+        //
+      }
+    }
+
+    if (this.compiler) {
+      const logger = this.compiler.getInfrastructureLogger(NewRelicBrowserWebpackPlugin.name);
+      logger.warn('sourcemap upload error', errorData);
+    }
+  };
 }
