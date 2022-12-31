@@ -15,10 +15,9 @@ module.exports = {
       apiKey: '',
       applicationId: '',
       releaseInfo: {
-        releaseId: '',
-        releaseName: '',
-        buildCommit: '',
-        repoUrl: '',
+        releaseId: require('../package.json').version,
+        buildCommit: 'auto',
+        repoUrl: 'auto',
       },
     }),
   ],

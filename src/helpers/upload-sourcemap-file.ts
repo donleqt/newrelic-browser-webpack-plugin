@@ -1,5 +1,5 @@
 import { publishSourcemap } from '@newrelic/publish-sourcemap';
-import { NewRelicBrowserWebpackPluginOptions } from '../types';
+import { NewRelicBrowserWebpackPluginOptions, ReleaseInfo } from '../types';
 import { JSFile } from './get-javascript-files';
 
 type UploadSourcemapFileParams = {

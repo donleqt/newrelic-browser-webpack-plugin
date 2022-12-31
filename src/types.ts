@@ -1,8 +1,8 @@
 export type ReleaseInfo = {
-  releaseName: string;
-  repoUrl: string;
-  buildCommit: string;
   releaseId: string;
+  releaseName?: string;
+  repoUrl: 'auto' | string;
+  buildCommit: 'auto' | string;
 };
 
 export type NewRelicBrowserWebpackPluginOptions = {
