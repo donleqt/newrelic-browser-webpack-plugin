@@ -35,6 +35,7 @@
   "homepage": "https://github.com/donleqt/newrelic-browser-webpack-plugin#readme",
   "devDependencies": {
     "@newrelic/publish-sourcemap": "^5.1.0",
+    "@release-it/conventional-changelog": "^5.1.1",
     "@types/jest": "29.2.4",
     "@typescript-eslint/eslint-plugin": "5.46.0",
     "@typescript-eslint/parser": "5.47.1",
