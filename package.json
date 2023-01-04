@@ -27,7 +27,7 @@
     "boilerplate",
     "typescript"
   ],
-  "author": "Hebert Cisco",
+  "author": "Don Le",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/donleqt/newrelic-browser-webpack-plugin/issues"
