@@ -1,5 +1,12 @@
 
 
+## [0.2.6](https://github.com/donleqt/newrelic-browser-webpack-plugin/compare/0.2.5...0.2.6) (2023-01-04)
+
+
+### Bug Fixes
+
+* ts error ([6bdcf29](https://github.com/donleqt/newrelic-browser-webpack-plugin/commit/6bdcf29142e8ee4b2ecd5b1ce7f5e9a5e16e1397))
+
 ## [0.2.5](https://github.com/donleqt/newrelic-browser-webpack-plugin/compare/0.2.4...0.2.5) (2023-01-04)
 
 
