@@ -1,11 +1,11 @@
 import { publishSourcemap } from '@newrelic/publish-sourcemap';
-import { NewRelicBrowserWebpackPluginOptions } from '../types';
+import { SourceMapPluginOptions } from '../types';
 import { JSFile } from './get-javascript-files';
 import { join } from 'path';
 
 type UploadSourcemapFileParams = {
   file: JSFile;
-  options: NewRelicBrowserWebpackPluginOptions;
+  options: SourceMapPluginOptions;
 };
 
 export const uploadSourcemapFile = ({

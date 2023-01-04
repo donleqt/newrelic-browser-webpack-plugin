@@ -1,5 +1,6 @@
 const path = require('path');
-const NewRelicBrowserWebpackPlugin = require('../lib').default;
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { NewRelicHtmlPlugin } = require('../lib');
 
 /** @type {import('webpack').Configuration} */
 module.exports = {
@@ -11,16 +12,19 @@ module.exports = {
     filename: 'main.bundle.js',
   },
   plugins: [
-    new NewRelicBrowserWebpackPlugin({
-      apiKey: 'NRAK-5YY3LEJWZZ93ZBRMMBFGDZ9DEWF',
-      applicationId: '535898923',
-      assetsUrl: 'https://example.com/assets',
-      releaseInfo: {
-        releaseId: require('../package.json').version,
-        buildCommit: 'auto',
-        repoUrl: 'auto',
-      },
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, './index.html'),
+    }),
+    new NewRelicHtmlPlugin({
+      applicationID: 100,
+      licenseKey: 'LSK-2022',
+      trustKey: 'TRUST-7777',
+      accountID: 999,
+      agentID: 'AGENT-127',
+      distributedTracing: true,
+      cookieEnabled: true,
     }),
   ],
+
   devtool: 'source-map',
 };
