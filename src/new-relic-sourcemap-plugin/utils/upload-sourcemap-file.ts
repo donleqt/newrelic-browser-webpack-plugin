@@ -1,16 +1,18 @@
 import { publishSourcemap } from '@newrelic/publish-sourcemap';
-import { SourceMapPluginOptions } from '../types';
+import { ReleaseInfo, SourceMapPluginOptions } from '../types';
 import { JSFile } from './get-javascript-files';
 import { join } from 'path';
 
 type UploadSourcemapFileParams = {
   file: JSFile;
   options: SourceMapPluginOptions;
+  releaseInfo: ReleaseInfo;
 };
 
 export const uploadSourcemapFile = ({
   file,
-  options: { apiKey, applicationID, releaseInfo, sourcemapUploadHost, assetsUrl },
+  options: { apiKey, applicationID, sourcemapUploadHost, assetsUrl },
+  releaseInfo,
 }: UploadSourcemapFileParams) => {
   return new Promise((resolve, reject) => {
     publishSourcemap(

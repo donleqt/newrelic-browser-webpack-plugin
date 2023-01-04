@@ -25,6 +25,7 @@ export class NewRelicSourcemapPlugin {
 
       await uploadAllSourcemaps({
         jsFiles,
+        releaseInfo,
         onError: (error) => handleError(error, compiler),
         options: {
           ...options,
