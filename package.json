@@ -24,8 +24,10 @@
     "url": "git+https://github.com/donleqt/newrelic-browser-webpack-plugin.git"
   },
   "keywords": [
-    "boilerplate",
-    "typescript"
+    "newrelic",
+    "newrelic webpack",
+    "newrelic script",
+    "newrelic browser monitoring"
   ],
   "author": "Don Le",
   "license": "MIT",

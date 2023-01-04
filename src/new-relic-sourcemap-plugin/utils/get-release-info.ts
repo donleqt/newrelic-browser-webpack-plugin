@@ -1,11 +1,13 @@
 import { CLIHelper } from '../../helpers';
 import { ReleaseInfo } from '../types';
 
-export const getReleaseInfo = async (releaseInfo: ReleaseInfo): Promise<ReleaseInfo> => {
+export const getReleaseInfo = async (): Promise<ReleaseInfo> => {
+  const [commitHash, commitMessage] = await Promise.all([CLIHelper.getBuildCommit(), CLIHelper.getLastCommitMessage()]);
+
   return {
-    ...releaseInfo,
-    releaseName: releaseInfo.releaseName || releaseInfo.releaseId,
-    buildCommit: releaseInfo.buildCommit === 'auto' ? await CLIHelper.getBuildCommit() : releaseInfo.buildCommit,
-    repoUrl: releaseInfo.repoUrl === 'auto' ? await CLIHelper.getRepoUrl() : releaseInfo.repoUrl,
+    releaseId: commitHash,
+    releaseName: commitMessage,
+    buildCommit: commitHash,
+    repoUrl: await CLIHelper.getRepoUrl(),
   };
 };

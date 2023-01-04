@@ -6,9 +6,7 @@ export const getNewRelicScript = ({
   applicationID,
   agentID,
   licenseKey,
-  distributedTracing,
-  cookieEnabled,
-}: NewRelicHtmlPluginOptions) => `;window.NREUM||(NREUM={});NREUM.init={distributed_tracing:{enabled:${distributedTracing}},privacy:{cookies_enabled:${cookieEnabled}},ajax:{deny_list:["bam.nr-data.net"]}};
+}: NewRelicHtmlPluginOptions) => `;window.NREUM||(NREUM={});NREUM.init={distributed_tracing:{enabled:true},privacy:{cookies_enabled:true},ajax:{deny_list:["bam.nr-data.net"]}};
 
 ;NREUM.loader_config={accountID:"${accountID}",trustKey:"${applicationID}",agentID:"${agentID}",licenseKey:"${licenseKey}",applicationID:"1103204790"}
 

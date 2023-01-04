@@ -6,7 +6,5 @@ export type NewRelicHtmlPluginOptions = {
   trustKey: string;
   licenseKey: string;
   applicationID: string;
-  distributedTracing: boolean;
-  cookieEnabled: boolean;
   newRelicScript?: string;
 };

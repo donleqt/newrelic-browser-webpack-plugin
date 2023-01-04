@@ -21,7 +21,7 @@ export class NewRelicSourcemapPlugin {
 
     compiler.hooks.done.tapAsync(PLUGIN_NAME, async (stats, callback) => {
       const jsFiles = getJavascriptFiles(compiler, stats);
-      const releaseInfo = await getReleaseInfo(options.releaseInfo);
+      const releaseInfo = options.releaseInfo || (await getReleaseInfo());
 
       await uploadAllSourcemaps({
         jsFiles,

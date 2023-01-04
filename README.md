@@ -29,6 +29,8 @@ const { NewRelicHtmlPlugin, NewRelicSourcemapPlugin } = require('newrelic-browse
 
 Add the plugin to your webpack config:
 
+#### Inject New Relic Browser Code to index.html:
+
 ```javascript
 plugins: [
     new NewRelicHtmlPlugin({
@@ -37,18 +39,19 @@ plugins: [
       trustKey: 'TRUST-7777',
       accountID: 999,
       agentID: 'AGENT-127',
-      distributedTracing: true,
-      cookieEnabled: true,
     }),
+  ],
+```
+
+#### Upload sourcemaps:
+```javascript
+plugins: [
     new NewRelicSourcemapPlugin({
       apiKey: '',
       applicationID: '',
       assetsUrl: 'http://mywebsite.com/static',
-      releaseInfo: {
-        releaseId: '',
-        repoUrl: '',
-        releaseName: '',
-      },
     }),
   ],
 ```
+
+
