@@ -14,6 +14,7 @@ jobs:
           git config user.name "${GITHUB_ACTOR}"
           git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
       - run: npm install
+      - run: git stash
       - run: npm run release -- --ci
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
