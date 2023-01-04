@@ -8,7 +8,7 @@ export type ReleaseInfo = {
 };
 
 export type SourceMapPluginOptions = {
-  applicationId: number;
+  applicationID: number;
   apiKey: string;
   releaseInfo: ReleaseInfo;
   sourcemapUploadHost: string;

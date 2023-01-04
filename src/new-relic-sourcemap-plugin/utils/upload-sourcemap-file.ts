@@ -10,14 +10,14 @@ type UploadSourcemapFileParams = {
 
 export const uploadSourcemapFile = ({
   file,
-  options: { apiKey, applicationId, releaseInfo, sourcemapUploadHost, assetsUrl },
+  options: { apiKey, applicationID, releaseInfo, sourcemapUploadHost, assetsUrl },
 }: UploadSourcemapFileParams) => {
   return new Promise((resolve, reject) => {
     publishSourcemap(
       {
         sourcemapPath: file.sourcemap,
         javascriptUrl: join(assetsUrl, file.file),
-        applicationId: applicationId,
+        applicationID: applicationID,
         apiKey: apiKey,
         releaseName: releaseInfo.releaseName,
         releaseId: releaseInfo.releaseId,
