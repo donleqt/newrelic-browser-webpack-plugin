@@ -39,6 +39,7 @@ plugins: [
       trustKey: 'TRUST-7777',
       accountID: 999,
       agentID: 'AGENT-127',
+      NREUMInit: '{distributed_tracing:{enabled:true},privacy:{cookies_enabled:true},ajax:{deny_list:["bam.nr-data.net"]}}'
     }),
   ],
 ```

@@ -6,5 +6,6 @@ export type NewRelicHtmlPluginOptions = {
   trustKey: string;
   licenseKey: string;
   applicationID: string;
+  NREUMInit: string;
   newRelicScript?: string;
 };
