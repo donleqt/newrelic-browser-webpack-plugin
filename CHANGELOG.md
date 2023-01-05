@@ -1,5 +1,12 @@
 
 
+## [0.2.7](https://github.com/donleqt/newrelic-browser-webpack-plugin/compare/0.2.6...0.2.7) (2023-01-05)
+
+
+### Bug Fixes
+
+* escape string  ([cc544e3](https://github.com/donleqt/newrelic-browser-webpack-plugin/commit/cc544e31bdfc8022887b763fc63fe062141dbc57))
+
 ## [0.2.6](https://github.com/donleqt/newrelic-browser-webpack-plugin/compare/0.2.5...0.2.6) (2023-01-04)
 
 
