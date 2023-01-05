@@ -1,5 +1,7 @@
 
 
+## [0.2.8](https://github.com/donleqt/newrelic-browser-webpack-plugin/compare/0.2.7...0.2.8) (2023-01-05)
+
 ## [0.2.7](https://github.com/donleqt/newrelic-browser-webpack-plugin/compare/0.2.6...0.2.7) (2023-01-05)
 
 
